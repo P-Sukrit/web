@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Show JSON Data</title>
+</head>
+<body>
+  <div id="json-data"></div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Fetch JSON data
+      fetch("https://meet.lpho.go.th/show_count_smog")
+        .then(response => response.json())
+        .then(data => {
+          // Convert JSON data to string for printing
+          const jsonDataString = JSON.stringify(data, null, 2);
+
+          // Display JSON data on the webpage
+          document.getElementById("json-data").innerText = jsonDataString;
+        })
+        .catch(error => {
+          console.error("Error fetching JSON data:", error);
+          document.getElementById("json-data").innerText = "Error fetching JSON data.";
+        });
+    });
+  </script>
+</body>
+</html>
