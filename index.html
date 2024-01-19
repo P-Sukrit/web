@@ -1,36 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Show JSON Data</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show JSON Data</title>
 </head>
 <body>
-  <div id="json-data"></div>
+    <div id="jsonDataContainer"></div>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      // URL of the cors-anywhere proxy
-      const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-
-      // URL of the API you want to access
-      const apiUrl = 'https://meet.lpho.go.th/show_count_smog';
-
-      // Fetch JSON data using the proxy
-      fetch(proxyUrl + apiUrl)
-        .then(response => response.json())
-        .then(data => {
-          // Convert JSON data to string for printing
-          const jsonDataString = JSON.stringify(data, null, 2);
-
-          // Display JSON data on the webpage
-          document.getElementById("json-data").innerText = jsonDataString;
-        })
-        .catch(error => {
-          console.error("Error fetching JSON data:", error);
-          document.getElementById("json-data").innerText = "Error fetching JSON data.";
-        });
-    });
-  </script>
+    <script>
+        // Fetch JSON data
+        fetch('http://61.7.235.119:8086/show_count_smog.php')
+            .then(response => response.json())
+            .then(data => {
+                // Display JSON data
+                const jsonDataContainer = document.getElementById('jsonDataContainer');
+                jsonDataContainer.innerHTML = '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+            })
+            .catch(error => console.error('Error fetching JSON:', error));
+    </script>
 </body>
 </html>
