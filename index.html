@@ -11,7 +11,7 @@
 
     <script>
         // Fetch JSON data
-        fetch('https://meet.lpho.go.th/show_count_smog.php')
+        fetch('https://meet.lpho.go.th/show_count_smog.php', { mode: 'no-cors' })
             .then(response => response.json())
             .then(data => {
                 // Display JSON data
