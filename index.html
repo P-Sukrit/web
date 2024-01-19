@@ -14,6 +14,7 @@
         fetch('https://meet.lpho.go.th/show_count_smog.php', { mode: 'no-cors' })
             .then(response => response.json())
             .then(data => {
+                console.log(data)
                 // Display JSON data
                 const jsonDataContainer = document.getElementById('jsonDataContainer');
                 jsonDataContainer.innerHTML = '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
