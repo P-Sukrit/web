@@ -1,29 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+</head>
+<body>
+
 <div id="jsonDataContainer"></div>
 
-<script>
-    // Fetch JSON data
-    fetch('https://meet.lpho.go.th/show_count_smog',
-            // fetch('http://61.7.235.119:8086/show_count_smog.php',
-            // fetch('http://localhost:8086/show_count_smog.php',
+<script src="script.js"></script>
 
-
-
-            // {
-            //     mode: 'no-cors'
-            // }
-        )
-        .then(response => {
-            if (!response.ok) {
-                console.error('Network response was not ok. Status Code:', response.status);
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log(data)
-            // Display JSON data
-            const jsonDataContainer = document.getElementById('jsonDataContainer');
-            jsonDataContainer.innerHTML = '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
-        })
-        .catch(error => console.error('Error fetching JSON:', error));
-</script>
+</body>
+</html>
