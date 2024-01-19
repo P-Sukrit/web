@@ -1,13 +1,17 @@
 fetch('https://meet.lpho.go.th/show_count_smog')
   .then(response => {
+    // Check if the response is successful (status code 200-299)
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      throw new Error(`HTTP error! Status: ${response.status}`);
     }
-    return response.text();
+    
+    // Parse the JSON response
+    return response.json();
   })
   .then(data => {
-    console.log(data);
+    // Handle the JSON data
+    console.log(data); // You can replace this with your own logic to display or manipulate the data
   })
   .catch(error => {
-    console.error('There was a problem with the fetch operation:', error);
+    console.error('Fetch error:', error);
   });
